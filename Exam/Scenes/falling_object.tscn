@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyt58i8hda3px"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_vgpjo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kuq6b"]
+
+[node name="Falling Object" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_vgpjo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_kuq6b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

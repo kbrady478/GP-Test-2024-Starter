@@ -26,7 +26,10 @@ func _process(delta):
 
 
 func _on_texture_button_pressed():
+	#for i in spawn_Array.length():
+	obj_Instance = obj.instantiate()
 	spawning.add_child(obj_Instance)
+	
 
 
 func _on_h_slider_value_changed(value):

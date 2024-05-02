@@ -2,9 +2,9 @@ extends Control
 
 var amount_To_Spawn: int
 
+@onready var slider_num = $"CanvasLayer/Panel/Panel/Slider Num"
+@onready var h_slider = $CanvasLayer/Panel/Panel/HSlider
 
-@onready var h_slider = $CanvasLayer/HSlider
-@onready var slider_num = $"CanvasLayer/Slider Num"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

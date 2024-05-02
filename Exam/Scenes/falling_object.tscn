@@ -1,9 +1,39 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjhqo1qm7vdfj"]
+[gd_scene load_steps=9 format=3 uid="uid://cjhqo1qm7vdfj"]
 
 [ext_resource type="Script" path="res://Scenes/falling_Object.gd" id="1_lvpos"]
 [ext_resource type="Texture2D" uid="uid://cirybqlb18c3i" path="res://icon.svg" id="1_muti5"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lvv0w"]
+
+[sub_resource type="Curve" id="Curve_vd34q"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, -360), 0.0, 0.0, 0, 0, Vector2(0.426667, 11.8682), 0.0, 0.0, 0, 0, Vector2(0.986667, 360), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_mo56w"]
+curve = SubResource("Curve_vd34q")
+
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_t57ap"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_1ppag"]
+lifetime_randomness = 1.0
+particle_flag_disable_z = true
+angle_min = 24.3
+angle_max = 76.0
+angle_curve = SubResource("CurveTexture_mo56w")
+spread = 180.0
+angular_velocity_max = 360.0
+directional_velocity_min = 0.0
+directional_velocity_max = 360.0
+directional_velocity_curve = SubResource("CurveXYZTexture_t57ap")
+radial_velocity_min = -1000.0
+radial_velocity_max = 1000.0
+gravity = Vector3(0, 98, 0)
+linear_accel_min = -100.0
+linear_accel_max = 100.0
+radial_accel_min = -100.0
+radial_accel_max = 100.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_4trln"]
 size = Vector2(131, 133)
@@ -14,9 +44,20 @@ physics_material_override = SubResource("PhysicsMaterial_lvv0w")
 can_sleep = false
 script = ExtResource("1_lvpos")
 
+[node name="Explosion" type="GPUParticles2D" parent="."]
+position = Vector2(0, -109)
+amount = 50
+process_material = SubResource("ParticleProcessMaterial_1ppag")
+lifetime = 0.5
+explosiveness = 1.0
+randomness = 1.0
+trail_enabled = true
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_muti5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0.5, -1.5)
 shape = SubResource("RectangleShape2D_4trln")
+
+[connection signal="finished" from="Explosion" to="." method="_on_explosion_finished"]

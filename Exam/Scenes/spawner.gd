@@ -7,7 +7,7 @@ var amount_To_Spawn: int
 
 
 
-@onready var spawning = $CanvasLayer/Panel/Panel/Spawning
+@onready var spawning = $CanvasLayer/Panel/Spawning
 @onready var obj = preload("res://Scenes/falling_Object.tscn")
 var obj_Instance 
 
@@ -19,6 +19,7 @@ func _ready():
 	obj_Instance = obj.instantiate()
 	
 
+	
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):

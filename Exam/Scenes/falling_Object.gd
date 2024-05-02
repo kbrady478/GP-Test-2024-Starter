@@ -1,16 +1,23 @@
 extends RigidBody2D
 
 
+@onready var explosion = $Explosion
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	explosion.visible = false
 
 
 
 func _physics_process(delta):
 	# If goes out of screen boundary 
 	if (position.y >= 648):
-		# Trigger explosion
-		print("Obj deleted")
-		queue_free() 
+		explosion.visible = true
+		print("reached")
+		queue_free()
 		
+
+		
+
+
+	

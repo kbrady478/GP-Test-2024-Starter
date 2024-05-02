@@ -33,6 +33,20 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_f8nfo")
 
+[node name="Spawning" type="Control" parent="CanvasLayer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
 [node name="Panel" type="Panel" parent="CanvasLayer/Panel"]
 layout_mode = 1
 offset_left = 25.0
@@ -40,13 +54,6 @@ offset_top = 29.0
 offset_right = 459.0
 offset_bottom = 79.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_ml2qc")
-
-[node name="Spawning" type="Control" parent="CanvasLayer/Panel/Panel"]
-anchors_preset = 0
-offset_left = -25.0
-offset_top = -29.0
-offset_right = 15.0
-offset_bottom = 11.0
 
 [node name="Slider Num" type="Label" parent="CanvasLayer/Panel/Panel"]
 layout_mode = 0
@@ -80,9 +87,6 @@ grow_horizontal = 2
 grow_vertical = 2
 texture_normal = ExtResource("2_uvx66")
 texture_pressed = ExtResource("2_uvx66")
-
-[node name="Polygon2D" type="Polygon2D" parent="."]
-position = Vector2(576, 324)
 
 [node name="Falling Object" parent="." instance=ExtResource("3_fny24")]
 

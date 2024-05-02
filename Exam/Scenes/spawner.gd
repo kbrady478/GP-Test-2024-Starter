@@ -1,7 +1,6 @@
 extends Control
 
 var amount_To_Spawn: int
-var spawn_Array = []
 
 @onready var slider_num = $"CanvasLayer/Panel/Panel/Slider Num"
 @onready var h_slider = $CanvasLayer/Panel/Panel/HSlider
@@ -19,6 +18,7 @@ func _ready():
 	slider_num.text = str(h_slider.value)
 	obj_Instance = obj.instantiate()
 	
+
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -26,13 +26,13 @@ func _process(delta):
 
 
 func _on_texture_button_pressed():
-	#for i in spawn_Array.length():
-	obj_Instance = obj.instantiate()
-	spawning.add_child(obj_Instance)
-	
+	for i in amount_To_Spawn:
+		obj_Instance = obj.instantiate()
+		spawning.add_child(obj_Instance)
 
 
 func _on_h_slider_value_changed(value):
 	amount_To_Spawn = int(value)
 	slider_num.text = str(int(value))
 	print(value)
+
